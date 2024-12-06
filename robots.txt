@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://fair2adapt.github.io/Hack4RiOMAR/sitemap.xml
