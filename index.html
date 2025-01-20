@@ -54,65 +54,42 @@
     
 
 <p><img src="https://raw.githubusercontent.com/FAIR2Adapt/Hack4RiOMAR/refs/heads/main/static/logoFAIR2Adapt_with_earth.png" alt="" /></p>
-<h2 id="welcome-to-the-workhathon-earth-africa-bar-chart">Welcome to the Workhathon! 🌍📊</h2>
-<p>We’re excited to have you here for the DGGS for FAIR2Adapt RiOMar Case Study workathon! Together, we’ll explore high-resolution RiOMar data, dive into DGGS-powered workflows (with xDGGS + Pangeo 🚀), and lay the groundwork for FAIR, scalable solutions supporting climate adaptation.</p>
+<h1 id="welcome-to-the-1st-fair2adapt-case-study-workshop">Welcome to the 1st FAIR2Adapt Case Study Workshop!</h1>
+<p>🌍📊 We’re excited to welcome you to the first workshop for the FAIR2Adapt RiOMar Case Study. For this inaugural workshop, the RiOMar community has chosen to focus on understanding the RiOMar data and exploring how to leverage DGGS (Discrete Global Grid System) to enhance data usability for end-users. To make it even more effective, we’ve organized this event as a workathon!</p>
+<p>Why a workathon? Because we've invited external experts to collaborate with us and help us maximize the potential of DGGS for the FAIR2Adapt project.</p>
+<p>Together, we’ll explore high-resolution RiOMar data, dive into DGGS-powered workflows (with xDGGS + Pangeo 🚀), and lay the foundation for FAIR, scalable solutions that support climate adaptation.</p>
 <p>Let’s collaborate, innovate, and make an impact! 💡🌱</p>
+<h2 id="advancing-fair-workflows-for-climate-adaptation">Advancing FAIR Workflows for Climate Adaptation</h2>
+<p>This workathon is a unique opportunity to collaborate with peers and contribute to innovative workflows that empower climate resilience. If you’ve received this invitation, we look forward to your insights and expertise.</p>
 <h2 id="data-challenges-for-the-fair2adapt-riomar-case-study">Data challenges for the FAIR2Adapt RiOMar Case study</h2>
 <p>This case study is led by <a href="http://ifremer.fr">IFREMER</a> and builds on the outcomes of the RiOMar Project - Coastal Water Quality Anticipation to manage coastal zone ecosystem responses for biodiversity conservation. The RiOMar project’s data is high-resolution and complex to manipulate. To effectively support climate adaptation strategies and plans, it is crucial to maintain the high-resolution quality while enabling efficient data fusion with diverse datasets.</p>
-<h2 id="about-the-workhathon">About the Workhathon</h2>
-<p>We are excited to invite a small group of experts to a workathon focused on exploring the integration of Discrete Global Grid Systems (DGGS) into future data workflows for the FAIR2Adapt project, using high-resolution RiOMar data. This event will assess how to develop a preprocessing pipeline for publishing datasets into DGGS grids and evaluate how this approach can streamline data co-location and fusion, providing critical support for climate adaptation strategies.</p>
-<p>This workathon aims to lay the foundation for future efforts in FAIR2Adapt by:</p>
-<ul>
-<li><strong>Deep Dive into DGGS</strong>: Explore the fundamentals and advantages of DGGS for high-resolution spatial data management, with a focus on leveraging <a href="https://github.com/xarray-contrib/xdggs">xdggs</a> for scalable and efficient analysis.</li>
-<li><strong>Assess RiOMar Data</strong>: Examine the RiOMar datasets and associated metadata to evaluate their readiness for DGGS integration and explore how tools within the Pangeo ecosystem can facilitate data access and preprocessing.</li>
-<li><strong>Pipeline Development</strong>: Design and initiate a data processing pipeline using Healpix (DGGS), xDGGS, and Zarr, aligned with FAIR principles and leveraging the Pangeo stack for scalable workflows.</li>
-<li><strong>Support Data Fusion</strong>: Demonstrate how DGGS, combined with Pangeo’s data processing and visualization capabilities, facilitates seamless integration of RiOMar data with other datasets, advancing the development of climate adaptation strategies.</li>
-</ul>
 <h2 id="event-details">Event Details</h2>
 <ul>
 <li>Dates: 16-19 January 2025</li>
 <li>Location: Geilo, Norway</li>
 <li>By invitation only, with a maximum capacity of 7 participants. Most participants will be from the FAIR2Adapt project, with a few additional experts in DGGS invited to complement our group. Invitees will receive a detailed agenda and preparation materials.</li>
 </ul>
-<h2 id="advancing-fair-workflows-for-climate-adaptation">Advancing FAIR Workflows for Climate Adaptation</h2>
-<p>This workathon is a unique opportunity to collaborate with peers and contribute to innovative workflows that empower climate resilience. If you’ve received this invitation, we look forward to your insights and expertise.</p>
-<h2 id="hack4riomar-summary-and-outcomes">Hack4RiOMar summary and outcomes</h2>
-<p><em>The event was attended in person by six motivated participants, who collaborated to tackle the challenges at hand and advance the FAIR2Adapt RiOMar Case Study. We would like to thank the external experts who joined the hackathon, despite not being part of the FAIR2Adapt project, and attended at their own expense.</em></p>
-<p><strong>Participants</strong> (name, organisation, Github username):</p>
-<ul>
-<li>Even Moa Myklebust, Simula Research Laboratory (Norway), @evenmm </li>
-<li>Tina Odaka, IFREMER (France), @tinaok</li>
-<li>Jean-Marc Delouis, IFREMER (France), @jmdelouis</li>
-<li>Justus Magin, CNRS-LOPS (France), @keewis</li>
-<li>Ola Formo Kihle, Independent Consultant / University of Washington Contractor, (Norway), @ofk123</li>
-<li>Anne Fouilloux, Simula Research Laboratory (Norway), @annefou</li>
-</ul>
-<h3 id="short-summary-of-the-hack4riomar-workathon">short summary of the Hack4RiOMar workathon</h3>
-<ul>
-<li>Successfully aggregated virtual datasets into a single dataset using virtualiZarr, using kerchunk while we still have issues with icechunk.</li>
-<li>Successfully transformed a sample RiOMar dataset into DGSS (Healpix) grid using different resolutions</li>
-<li>Tested the use and potential of multiscale Zarr for DGGS-transformed RiOMar datasets.</li>
-<li>Initiated the process of creating Conda environments on Datarmor, one with cubed and one with dask.</li>
-<li>Tried out transformation of datasets into DGGS (Healpix grid) to test the robustness of our approach:
-<ul>
-<li>Successfully regridded the Argo Kinetic Energy product from Cartesian grid to a discrete global grid system, using xdggs and xarray_healpy.</li>
-<li>Completed regridding and exposed the zarr file for Gebco data, with a notebook for plotting the data.</li>
-</ul>
-</li>
-<li>Created a RO-Crate for RiOMar data to determine if the minimum required metadata is already available.</li>
-</ul>
-<p>We created 20 Jupyter notebooks. Some are still in progress or contain issues we have discovered (e.g., these notebooks did not run successfully). 12 notebooks have successfully run, showcasing and explaining the progress and results of each planned task.</p>
-<ul>
-<li>Github repository with all the notebooks we created: <a href="https://github.com/FAIR2Adapt/Hack4RiOMAR/tree/main/notebooks">https://github.com/FAIR2Adapt/Hack4RiOMAR/tree/main/notebooks</a></li>
-<li><a href="https://fair2adapt.github.io/Hack4RiOMAR/notebooks/index.html">Check the rendered version (Jupyter Book) of the highlight Jupyter notebooks created during the hackathon</a></li>
-</ul>
-<p>Check out our <a href="https://fair2adapt.github.io/Hack4RiOMAR/fair2adapt.github.io/Hack4RiOMAR/">Hack4RiOMar blog</a> to learn more about what we did, our successes and challenges, as well as the next steps we identified!</p>
 <h2 id="organizers-and-sponsors">Organizers and Sponsors</h2>
 <p>This workathon is organised by <a href="https://www.simula.no">Simula Research Laboratory</a> as part of the <a href="http://fair2adapt-eosc.eu">FAIR2Adapt project</a>.</p>
 <p>The FAIR2Adapt project has received funding from the European Union’s HORIZON-INFRA-2024-EOSC-01-01 programme under grant agreement No 101188256.</p>
+<h1 id="event-overview-and-outcomes">Event Overview and Outcomes</h1>
+<p>You will find more information about the workathon, including the program and a summary of the outcomes.</p>
 
 
 <ol class="toc">
+    
+    
+    <li><a href="https://fair2adapt.github.io/Hack4RiOMAR/workathon/">Workathon Overview</a>
+        <ol>
+            
+            <li><a href="https://fair2adapt.github.io/Hack4RiOMAR/workathon/overview/">Event Overview</a></li>
+            
+            <li><a href="https://fair2adapt.github.io/Hack4RiOMAR/workathon/highlights/">Event Highlights &amp; Outcomes</a></li>
+            
+            <li><a href="https://fair2adapt.github.io/Hack4RiOMAR/workathon/blog/">Read More in Our Blog</a></li>
+            
+        </ol>
+    </li>
     
 </ol>
 
