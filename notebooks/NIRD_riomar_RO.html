@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Create RO-Crate from NIRD dataset &#8212; Hack4RiOMar Jupyter Notebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'NIRD_riomar_RO';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAIR2Adapt Case study 1 (CS1) sample dataset" href="NorESM-CS1.html" />
+    <link rel="prev" title="Create RO-Crate from RiOMar dataset" href="Riomar_RO.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://avatars.githubusercontent.com/u/23299451?s=400&u=5a8c93b430a51e03c29eaac8c5ff62cb10063c22&v=4" class="logo__image only-light" alt="Hack4RiOMar Jupyter Notebook - Home"/>
+    <img src="https://avatars.githubusercontent.com/u/23299451?s=400&u=5a8c93b430a51e03c29eaac8c5ff62cb10063c22&v=4" class="logo__image only-dark pst-js-only" alt="Hack4RiOMar Jupyter Notebook - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Hack4RiOMar Jupyter Notebooks
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RiOMar model data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pangeo-riomar_resize_datarmor.html">Create a small sample RiOMar dataset on Datamor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pangeo-riomar.html">Regridding to DGGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualize-riomar.html">Visualize RiOMAR dggs-transformed data with xddgs and lonboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="riomar_plots-datatree_multiresoplot.html">Multi-resolution RiOMar data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtualizarr_riomar_kerchunk.html">VirtualZarr with Kerchunk for RiOMar data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtualizarr_riomar_icechunk.html">Testing Virtual Zarr with RiOMar and Icechunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Riomar_RO.html">Create RO-Crate from RiOMar dataset</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Create RO-Crate from NIRD dataset</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NorESM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="NorESM-CS1.html">FAIR2Adapt Case study 1 (CS1) sample dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NorESM-regridding.html">Transform NorESM data to DGGS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ARGO-KE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pangeo-argo-KE-regridding.html">Transform ARGO-KE products into DGGS (Healpix)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">odysea</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="odysea.html">Transform Odysea data to DGGS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GEBCO</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="GEBCO_HEALPIX.html">Transform GEBCO Bathymetry data to DGGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gebco_plots.html">Visualize the DGGS GEBCO Gridded Bathymetry with xdggs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/FAIR2Adapt/Hack4RiOMAR" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FAIR2Adapt/Hack4RiOMAR/issues/new?title=Issue%20on%20page%20%2FNIRD_riomar_RO.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/NIRD_riomar_RO.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Create RO-Crate from NIRD dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributions">Contributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook">Notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#biblipgraphy-and-other-interesting-resources">Biblipgraphy and other interesting resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-riomar-data-to-get-metadata">Open RiOMar data to get metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-metadata-from-riomar">Get metadata from RiOMAR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-bounding-box-in-wkt">Get bounding box in WKT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-for-the-provenance">Get information for the provenance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-institutions">Get Institutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-name-in-several-columns">Split name in several columns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-the-nird-archive-via-its-api">Access the NIRD Archive via its API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doi-to-find-in-the-nird-archive">DOI to find in the NIRD archive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-ro-crate">Create a new RO-Crate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-license-for-the-ro-crate">Add the license for the RO-Crate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-creators-and-their-organizations">Add creators and their Organizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-data">Add data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-temporal-coverage-if-available">Prepare Temporal coverage if available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-spatial-coverage-if-available">Prepare Spatial coverage if available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go-through-each-data-and-add-it-in-the-ro-crate">Go through each data and add it in the RO-Crate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-metadata-to-ro">Add metadata to RO</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-title-and-description">Add the title and description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-publisher-and-creator">Add the publisher and creator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-creator-of-the-ro-crate">Add the creator of the RO-Crate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-publication-date">Add Publication date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-citation">Add citation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-studysubject-keywords-etc">Add studySubject, keywords, etc.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-version">Add version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-language">Add Language</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-to-disk">Write to disk</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="create-ro-crate-from-nird-dataset">
+<h1>Create RO-Crate from NIRD dataset<a class="headerlink" href="#create-ro-crate-from-nird-dataset" title="Link to this heading">#</a></h1>
+<section id="context">
+<h2>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h2>
+<section id="purpose">
+<h3>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h3>
+<p>We are demonstrating how to create a RO-Crate for a dataset by combining data stored in the NIRD archive (Norwegian Research Data Archive) with metadata derived from the RiOMar dataset. This example uses the rocrate Python library and adheres to the RO-Crate v1.1 specification, though it does not include a specific RO-Crate profile.</p>
+</section>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h3>
+<p>To run this notebook:</p>
+<ul class="simple">
+<li><p><strong>NIRD Archive Account</strong>: You will need an account on the NIRD archive.</p></li>
+<li><p><strong>Development Status</strong>: The NIRD archive is currently under development. The notebook will be updated once the archive becomes fully operational.</p></li>
+<li><p><strong>Access Limitations</strong>: At this stage, only members of the development or testing team of the new NIRD archive can execute this notebook.</p></li>
+</ul>
+<p>We will update this notebook as soon as the NIRD archive is fully functional and publicly available.</p>
+</section>
+</section>
+<section id="contributions">
+<h2>Contributions<a class="headerlink" href="#contributions" title="Link to this heading">#</a></h2>
+<section id="notebook">
+<h3>Notebook<a class="headerlink" href="#notebook" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Anne Fouilloux (author), Simula Research Laboratory (Norway), &#64;annefou</p></li>
+<li><p>XX (reviewer)</p></li>
+</ul>
+</section>
+</section>
+<section id="biblipgraphy-and-other-interesting-resources">
+<h2>Biblipgraphy and other interesting resources<a class="headerlink" href="#biblipgraphy-and-other-interesting-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sigma2.no/service/research-data-archive">Norwegian Research Data Archive(NIRD)</a></p></li>
+<li><p><a class="reference external" href="https://admin.ckan-archive-test.sigma2.no/">Test deployment of the new NIRD archive</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/rocrate/">rocrate</a> Python package</p></li>
+<li><p><a class="reference external" href="https://www.researchobject.org">Research Object documentation</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rocrate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocrate.rocrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">ROCrate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rocrate.model.person</span><span class="w"> </span><span class="kn">import</span> <span class="n">Person</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shapely</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="open-riomar-data-to-get-metadata">
+<h2>Open RiOMar data to get metadata<a class="headerlink" href="#open-riomar-data-to-get-metadata" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://data-fair2adapt.ifremer.fr/riomar/small.zarr&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-metadata-from-riomar">
+<h2>Get metadata from RiOMAR<a class="headerlink" href="#get-metadata-from-riomar" title="Link to this heading">#</a></h2>
+<section id="get-bounding-box-in-wkt">
+<h3>Get bounding box in WKT<a class="headerlink" href="#get-bounding-box-in-wkt" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Latitudes with values of -1 are NaN</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minlat</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">nav_lat_rho</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">nav_lat_rho</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">maxlat</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">nav_lat_rho</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">minlon</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">nav_lon_rho</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">maxlon</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">nav_lon_rho</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minlat</span><span class="p">,</span> <span class="n">maxlat</span><span class="p">,</span> <span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometry_wkt</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">minlon</span><span class="p">,</span> <span class="n">minlat</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">,</span> <span class="n">maxlat</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
+<span class="n">geometry_wkt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>time range</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time_counter</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> 
+<span class="n">te</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time_counter</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> 
+<span class="n">date_start</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y.%m.</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y.%m.</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">date_start</span><span class="p">,</span> <span class="n">date_end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-information-for-the-provenance">
+<h3>Get information for the provenance<a class="headerlink" href="#get-information-for-the-provenance" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prov</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;https://doi.org/10.5281/zenodo.13898339&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;SoftwareApplication&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.croco-ocean.org&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CROCO, Coastal and Regional Ocean COmmunity&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;CROCO GAMA model v2.0.1 https://doi.org/10.5281/zenodo.13898339&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="get-institutions">
+<h2>Get Institutions<a class="headerlink" href="#get-institutions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#fs = s3fs.S3FileSystem(anon=True)</span>
+<span class="n">client_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;endpoint_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://pangeo-eosc-minioapi.vm.fedcloud.eu/&#39;</span><span class="p">}</span>
+
+<span class="n">s3</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">client_kwargs</span><span class="o">=</span><span class="n">client_kwargs</span><span class="p">)</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;afouilloux-fair2adapt/institution-v3.json&quot;</span>
+<span class="k">with</span> <span class="n">s3</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">institutions</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">institutions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">institutions</span><span class="p">)</span>
+<span class="n">institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="split-name-in-several-columns">
+<h3>Split name in several columns<a class="headerlink" href="#split-name-in-several-columns" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rename_cols</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">institutions</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">rename_cols</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;name-&quot;</span> <span class="o">+</span> <span class="n">name</span>
+<span class="n">rename_cols</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">institutions</span> <span class="o">=</span> <span class="n">institutions</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">institutions</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">))</span>
+<span class="n">institutions</span> <span class="o">=</span> <span class="n">institutions</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename_cols</span><span class="p">)</span>
+<span class="n">institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="access-the-nird-archive-via-its-api">
+<h2>Access the NIRD Archive via its API<a class="headerlink" href="#access-the-nird-archive-via-its-api" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To be able to access the NIRD Archive via its API, you first need to register to the NIRD Archive and request a token.</p></li>
+<li><p>Please note that the NIRD archive is still under development and registration to <code class="docutils literal notranslate"><span class="pre">https://admin.ckan-archive-test.sigma2.no</span></code> is reserved to administrators.</p></li>
+<li><p>However, once the NIRD archive opens and you obtain your token,  and can create a file called <code class="docutils literal notranslate"><span class="pre">nird.json</span></code> that will look like this:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="p">{</span>
+<span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxxx&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./nird.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">config</span><span class="p">)[</span><span class="s2">&quot;token&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;config.json not found!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://admin.ckan-archive-test.sigma2.no/api/3/action/package_search&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span> <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
+
+<span class="n">list_records</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;result&quot;</span><span class="p">][</span><span class="s2">&quot;results&quot;</span><span class="p">]</span>
+<span class="n">list_records</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="doi-to-find-in-the-nird-archive">
+<h2>DOI to find in the NIRD archive<a class="headerlink" href="#doi-to-find-in-the-nird-archive" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doi</span> <span class="o">=</span> <span class="s2">&quot;10.82969/2025.hkfi3bn9.v2&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_records</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;doi&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">doi</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rec</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-new-ro-crate">
+<h2>Create a new RO-Crate<a class="headerlink" href="#create-a-new-ro-crate" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crate</span> <span class="o">=</span> <span class="n">ROCrate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-the-license-for-the-ro-crate">
+<h2>Add the license for the RO-Crate<a class="headerlink" href="#add-the-license-for-the-ro-crate" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;license&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;@id&quot;</span><span class="p">:</span>  <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;license_url&quot;</span><span class="p">]},</span>
+<span class="p">})</span>
+<span class="n">license</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;license_url&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;CreativeWork&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;license_id&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;license_title&quot;</span><span class="p">],</span>
+                <span class="p">}</span>
+<span class="n">crate</span><span class="o">.</span><span class="n">add_jsonld</span><span class="p">(</span><span class="n">license</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-creators-and-their-organizations">
+<h2>Add creators and their Organizations<a class="headerlink" href="#add-creators-and-their-organizations" title="Link to this heading">#</a></h2>
+<p>We also need the ROR to create an affiliation for each organization found</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_ror</span><span class="p">(</span><span class="n">institutions</span><span class="p">,</span> <span class="n">org</span><span class="p">):</span>
+    <span class="n">ror</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">rename_cols</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">institutions</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">institutions</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">org</span><span class="p">])]</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="n">ror_url</span> <span class="o">=</span> <span class="n">institutions</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">institutions</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">org</span><span class="p">])][</span><span class="s2">&quot;ror&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">ror</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">ror_url</span><span class="p">,</span>
+                <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Organization&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">org</span><span class="p">,</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">ror_url</span>
+                <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ror</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_authors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">list_orcids</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;creators&quot;</span><span class="p">]:</span>
+    <span class="n">creator</span><span class="p">[</span><span class="s1">&#39;givenName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creator</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">)</span>
+    <span class="n">creator</span><span class="p">[</span><span class="s1">&#39;familyName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creator</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;last_name&#39;</span><span class="p">)</span> 
+    <span class="n">list_authors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">creator</span><span class="p">[</span><span class="s1">&#39;givenName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span>  <span class="n">creator</span><span class="p">[</span><span class="s1">&#39;familyName&#39;</span><span class="p">])</span>
+    <span class="n">org_name</span> <span class="o">=</span> <span class="n">creator</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;organisation&quot;</span><span class="p">)</span>
+    <span class="n">ror</span> <span class="o">=</span> <span class="n">get_ror</span><span class="p">(</span><span class="n">institutions</span><span class="p">,</span> <span class="n">org_name</span><span class="p">)</span>
+    <span class="n">creator</span><span class="p">[</span><span class="s2">&quot;affiliation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">ror</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]}</span>
+    <span class="n">orcid</span> <span class="o">=</span> <span class="n">creator</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;orcid&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">creator</span><span class="p">)</span>
+    <span class="n">crate</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Person</span><span class="p">(</span><span class="n">crate</span><span class="p">,</span> <span class="s2">&quot;https://orcid.org/&quot;</span> <span class="o">+</span> <span class="n">orcid</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">creator</span><span class="p">))</span>
+    <span class="n">list_orcids</span><span class="o">.</span><span class="n">append</span><span class="p">({</span> <span class="s2">&quot;@id&quot;</span><span class="p">:</span>  <span class="s2">&quot;https://orcid.org/&quot;</span> <span class="o">+</span> <span class="n">orcid</span> <span class="p">})</span>
+    <span class="n">crate</span><span class="o">.</span><span class="n">add_jsonld</span><span class="p">(</span><span class="n">ror</span><span class="p">)</span>
+
+<span class="c1"># Add the list of authors</span>
+<span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">({</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="n">list_orcids</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;creators&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-data">
+<h2>Add data<a class="headerlink" href="#add-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">toc</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;table_of_contents&quot;</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="n">toc</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">toc</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="prepare-temporal-coverage-if-available">
+<h3>Prepare Temporal coverage if available<a class="headerlink" href="#prepare-temporal-coverage-if-available" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;temporal&quot;</span> <span class="ow">in</span> <span class="n">rec</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">temporal_coverage</span> <span class="o">=</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;temporal&quot;</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;temporal&quot;</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> 
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">temporal_coverage</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-spatial-coverage-if-available">
+<h3>Prepare Spatial coverage if available<a class="headerlink" href="#prepare-spatial-coverage-if-available" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_geoshape</span><span class="p">(</span><span class="n">spatial</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">spatial</span><span class="p">[</span><span class="s2">&quot;spatial_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;wkt&quot;</span><span class="p">:</span>
+        <span class="n">geo</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">spatial</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="s1">&#39;geoms&#39;</span><span class="p">):</span>
+            <span class="c1"># take the first one</span>
+             <span class="n">geo</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">geoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">geo</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;POLYGON&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>   
+        <span class="n">geolocation</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;GeoShape&quot;</span><span class="p">,</span> <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">geo</span><span class="p">,</span> <span class="s2">&quot;polygon&quot;</span><span class="p">:</span> <span class="n">geo</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">geolocation</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Not implemented yet</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">if</span> <span class="s2">&quot;spatial&quot;</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">:</span>
+    <span class="n">geolocation</span> <span class="o">=</span> <span class="n">get_geoshape</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s2">&quot;spatial&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rec</span><span class="p">[</span><span class="s2">&quot;spatial&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="go-through-each-data-and-add-it-in-the-ro-crate">
+<h3>Go through each data and add it in the RO-Crate<a class="headerlink" href="#go-through-each-data-and-add-it-in-the-ro-crate" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;https://admin.ckan-archive-test.sigma2.no&quot; + </span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">resource2add</span> <span class="o">=</span> <span class="p">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">)}</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">resource2add</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;http_url&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;s3_url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;s3:/&quot;</span> <span class="o">+</span> <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;s3_url&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;sdDatePublished&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;cron&quot;</span><span class="p">][</span><span class="s2">&quot;completed_date&quot;</span><span class="p">]</span>     <span class="c1"># Is it correct?</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;dateCreated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;metadata_created&quot;</span><span class="p">]</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;dateModified&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;metadata_modified&quot;</span><span class="p">]</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;contentSize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resource2add</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">)</span>
+    <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;encodingFormat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resource2add</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;format&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">geolocation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">geolocation</span>
+    <span class="k">if</span> <span class="n">temporal_coverage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">resource2add</span><span class="p">[</span><span class="s2">&quot;temporalCoverage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temporal_coverage</span>
+    
+    <span class="c1">## properties we remove because we do not know where to fit them</span>
+    <span class="n">resource2add</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">)</span>   <span class="c1"># was put in &quot;name&quot;</span>
+    <span class="n">resource2add</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;fixity&quot;</span><span class="p">)</span> <span class="c1"># Checksum?</span>
+    <span class="n">resource2add</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;s3_url&quot;</span><span class="p">)</span>  <span class="c1"># may be ut in different distribution but only valid for datasets and not files</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;properties = &quot;</span><span class="p">,</span> <span class="n">resource2add</span><span class="p">)</span>
+    <span class="n">resource</span> <span class="o">=</span> <span class="n">crate</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">fetch_remote</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">resource2add</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="add-metadata-to-ro">
+<h2>Add metadata to RO<a class="headerlink" href="#add-metadata-to-ro" title="Link to this heading">#</a></h2>
+<section id="add-the-title-and-description">
+<h3>Add the title and description<a class="headerlink" href="#add-the-title-and-description" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+<span class="n">description</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+<span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">({</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-the-publisher-and-creator">
+<h3>Add the publisher and creator<a class="headerlink" href="#add-the-publisher-and-creator" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">publisher_name</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">)</span>  <span class="c1">## WEIRD! </span>
+<span class="n">publisher_name</span> <span class="o">=</span> <span class="s2">&quot;Sigma2 AS&quot;</span>
+<span class="n">publisher_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.wikidata.org/wiki/Q12008197&quot;</span>
+<span class="n">publisher</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">publisher_url</span><span class="p">,</span>
+                <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Organization&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">publisher_name</span><span class="p">,</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">publisher_url</span>
+                <span class="p">}</span>
+<span class="n">crate</span><span class="o">.</span><span class="n">add_jsonld</span><span class="p">(</span><span class="n">publisher</span><span class="p">)</span>
+<span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;publisher&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">publisher_url</span> <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-the-creator-of-the-ro-crate">
+<h3>Add the creator of the RO-Crate<a class="headerlink" href="#add-the-creator-of-the-ro-crate" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;ro-crate-metadata.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">publisher_url</span> <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-publication-date">
+<h3>Add Publication date<a class="headerlink" href="#add-publication-date" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date_published</span> <span class="o">=</span>  <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;release_date&quot;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">({</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;datePublished&quot;</span><span class="p">:</span>  <span class="n">date_published</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-citation">
+<h3>Add citation<a class="headerlink" href="#add-citation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doi</span> <span class="o">=</span> <span class="s2">&quot;https://doi.org/&quot;</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;doi&quot;</span><span class="p">)</span>
+<span class="n">cite_as</span> <span class="o">=</span> <span class="s2">&quot; and &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_authors</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">publisher_name</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">date_published</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. &quot;</span> <span class="o">+</span>  <span class="n">doi</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+
+<span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">({</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="n">doi</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">doi</span><span class="p">,</span>
+    <span class="s2">&quot;cite-as&quot;</span><span class="p">:</span>  <span class="n">cite_as</span> <span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-studysubject-keywords-etc">
+<h3>Add studySubject, keywords, etc.<a class="headerlink" href="#add-studysubject-keywords-etc" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_subject</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subject</span> <span class="o">==</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">group</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">study_subjects</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">]:</span>
+    <span class="n">info_on_subject</span> <span class="o">=</span> <span class="n">find_subject</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;groups&quot;</span><span class="p">])</span>     
+    <span class="n">study_subjects</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+         <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/&quot;</span> <span class="o">+</span> <span class="n">info_on_subject</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keywords</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;tags&quot;</span><span class="p">]:</span>
+    <span class="n">keywords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="s2">&quot;display_name&quot;</span><span class="p">])</span>
+    
+<span class="n">keywords</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+
+<span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">({</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;about&quot;</span><span class="p">:</span> <span class="n">study_subjects</span><span class="p">,</span>
+    <span class="s2">&quot;keywords&quot;</span><span class="p">:</span>  <span class="n">keywords</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-version">
+<h3>Add version<a class="headerlink" href="#add-version" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crate</span><span class="o">.</span><span class="n">update_jsonld</span><span class="p">({</span>
+    <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">rec</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-language">
+<h3>Add Language<a class="headerlink" href="#add-language" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#crate.update_jsonld({</span>
+<span class="c1">#    &quot;@id&quot;: ,</span>
+<span class="c1">#    &quot;@type&quot;: &quot;Language&quot;,</span>
+<span class="c1">#})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rec</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rec</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="write-to-disk">
+<h2>Write to disk<a class="headerlink" href="#write-to-disk" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crate</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ro-crate&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rocrateValidator</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate</span> <span class="k">as</span> <span class="n">validate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="s2">&quot;ro-crate&quot;</span><span class="p">)</span>
+<span class="n">v</span><span class="o">.</span><span class="n">validator</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Riomar_RO.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Create RO-Crate from RiOMar dataset</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="NorESM-CS1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">FAIR2Adapt Case study 1 (CS1) sample dataset</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributions">Contributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook">Notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#biblipgraphy-and-other-interesting-resources">Biblipgraphy and other interesting resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-riomar-data-to-get-metadata">Open RiOMar data to get metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-metadata-from-riomar">Get metadata from RiOMAR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-bounding-box-in-wkt">Get bounding box in WKT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-for-the-provenance">Get information for the provenance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-institutions">Get Institutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-name-in-several-columns">Split name in several columns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-the-nird-archive-via-its-api">Access the NIRD Archive via its API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doi-to-find-in-the-nird-archive">DOI to find in the NIRD archive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-ro-crate">Create a new RO-Crate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-license-for-the-ro-crate">Add the license for the RO-Crate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-creators-and-their-organizations">Add creators and their Organizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-data">Add data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-temporal-coverage-if-available">Prepare Temporal coverage if available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-spatial-coverage-if-available">Prepare Spatial coverage if available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go-through-each-data-and-add-it-in-the-ro-crate">Go through each data and add it in the RO-Crate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-metadata-to-ro">Add metadata to RO</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-title-and-description">Add the title and description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-publisher-and-creator">Add the publisher and creator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-creator-of-the-ro-crate">Add the creator of the RO-Crate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-publication-date">Add Publication date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-citation">Add citation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-studysubject-keywords-etc">Add studySubject, keywords, etc.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-version">Add version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-language">Add Language</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-to-disk">Write to disk</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Pangeo and FAIR2Adapt Communities
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

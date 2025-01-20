@@ -1,0 +1,1410 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Hack4RiOMar Jupyter Notebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'odysea_regridding';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://avatars.githubusercontent.com/u/23299451?s=400&u=5a8c93b430a51e03c29eaac8c5ff62cb10063c22&v=4" class="logo__image only-light" alt="Hack4RiOMar Jupyter Notebook - Home"/>
+    <img src="https://avatars.githubusercontent.com/u/23299451?s=400&u=5a8c93b430a51e03c29eaac8c5ff62cb10063c22&v=4" class="logo__image only-dark pst-js-only" alt="Hack4RiOMar Jupyter Notebook - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Hack4RiOMar Jupyter Notebooks
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RiOMar model data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pangeo-riomar_resize_datarmor.html">Create a small sample RiOMar dataset on Datamor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pangeo-riomar.html">Regridding to DGGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualize-riomar.html">Visualize RiOMAR dggs-transformed data with xddgs and lonboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="riomar_plots-datatree_multiresoplot.html">Multi-resolution RiOMar data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtualizarr_riomar_kerchunk.html">VirtualZarr with Kerchunk for RiOMar data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtualizarr_riomar_icechunk.html">Testing Virtual Zarr with RiOMar and Icechunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Riomar_RO.html">Create RO-Crate from RiOMar dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NIRD_riomar_RO.html">Create RO-Crate from NIRD dataset</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NorESM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="NorESM-CS1.html">FAIR2Adapt Case study 1 (CS1) sample dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NorESM-regridding.html">Transform NorESM data to DGGS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ARGO-KE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pangeo-argo-KE-regridding.html">Transform ARGO-KE products into DGGS (Healpix)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">odysea</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="odysea.html">Transform Odysea data to DGGS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GEBCO</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="GEBCO_HEALPIX.html">Transform GEBCO Bathymetry data to DGGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gebco_plots.html">Visualize the DGGS GEBCO Gridded Bathymetry with xdggs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/FAIR2Adapt/Hack4RiOMAR" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FAIR2Adapt/Hack4RiOMAR/issues/new?title=Issue%20on%20page%20%2Fodysea_regridding.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/odysea_regridding.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install xdggs pint_xarray icechunk</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>xdggs
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>healpy
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span><span class="nv">zarr</span><span class="o">==</span><span class="m">2</span>.18.4
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: xdggs in /srv/conda/envs/notebook/lib/python3.12/site-packages (0.1.1)
+Requirement already satisfied: xarray in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (2024.7.0)
+Requirement already satisfied: cdshealpix in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (0.7.1)
+Requirement already satisfied: h3ronpy in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (0.22.0)
+Requirement already satisfied: typing-extensions in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (4.12.2)
+Requirement already satisfied: lonboard&gt;=0.9.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (0.9.3)
+Requirement already satisfied: pyproj&gt;=3.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (3.6.1)
+Requirement already satisfied: matplotlib in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (3.9.2)
+Requirement already satisfied: arro3-core&gt;=0.4.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (0.4.5)
+Requirement already satisfied: pooch in /srv/conda/envs/notebook/lib/python3.12/site-packages (from xdggs) (1.8.2)
+Requirement already satisfied: anywidget&lt;0.10.0,&gt;=0.9.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from lonboard&gt;=0.9.3-&gt;xdggs) (0.9.13)
+Requirement already satisfied: geopandas&gt;=0.13 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from lonboard&gt;=0.9.3-&gt;xdggs) (1.0.1)
+Requirement already satisfied: palettable&lt;4.0.0,&gt;=3.3.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from lonboard&gt;=0.9.3-&gt;xdggs) (3.3.3)
+Requirement already satisfied: pandas&lt;3,&gt;=2 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from lonboard&gt;=0.9.3-&gt;xdggs) (2.2.2)
+Requirement already satisfied: pyarrow&gt;=14.0.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from lonboard&gt;=0.9.3-&gt;xdggs) (17.0.0)
+Requirement already satisfied: shapely&lt;3,&gt;=2 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from lonboard&gt;=0.9.3-&gt;xdggs) (2.0.5)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (4.53.1)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (1.4.5)
+Requirement already satisfied: numpy&gt;=1.23 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (1.26.4)
+Requirement already satisfied: packaging&gt;=20.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (24.1)
+Requirement already satisfied: pillow&gt;=8 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (10.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from matplotlib-&gt;xdggs) (2.8.2)
+Requirement already satisfied: certifi in /srv/conda/envs/notebook/lib/python3.12/site-packages (from pyproj&gt;=3.3-&gt;xdggs) (2024.7.4)
+Requirement already satisfied: astropy in /srv/conda/envs/notebook/lib/python3.12/site-packages (from cdshealpix-&gt;xdggs) (6.1.2)
+Requirement already satisfied: platformdirs&gt;=2.5.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from pooch-&gt;xdggs) (4.2.2)
+Requirement already satisfied: requests&gt;=2.19.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from pooch-&gt;xdggs) (2.32.3)
+Requirement already satisfied: ipywidgets&gt;=7.6.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (8.1.3)
+Requirement already satisfied: psygnal&gt;=0.8.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.11.1)
+Requirement already satisfied: pyogrio&gt;=0.7.2 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from geopandas&gt;=0.13-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.9.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from pandas&lt;3,&gt;=2-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from pandas&lt;3,&gt;=2-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (2024.1)
+Requirement already satisfied: six&gt;=1.5 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;xdggs) (1.16.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch-&gt;xdggs) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch-&gt;xdggs) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from requests&gt;=2.19.0-&gt;pooch-&gt;xdggs) (1.26.19)
+Requirement already satisfied: pyerfa&gt;=2.0.1.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;cdshealpix-&gt;xdggs) (2.0.1.4)
+Requirement already satisfied: astropy-iers-data&gt;=0.2024.7.1.0.34.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;cdshealpix-&gt;xdggs) (0.2024.8.5.0.32.23)
+Requirement already satisfied: PyYAML&gt;=3.13 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;cdshealpix-&gt;xdggs) (6.0.2)
+Requirement already satisfied: comm&gt;=0.1.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.2.2)
+Requirement already satisfied: ipython&gt;=6.1.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (8.17.2)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (5.14.3)
+Requirement already satisfied: widgetsnbextension~=4.0.11 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (4.0.11)
+Requirement already satisfied: jupyterlab-widgets~=3.0.11 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (3.0.11)
+Requirement already satisfied: decorator in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (5.1.1)
+Requirement already satisfied: jedi&gt;=0.16 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.19.1)
+Requirement already satisfied: matplotlib-inline in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.1.7)
+Requirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (3.0.38)
+Requirement already satisfied: pygments&gt;=2.4.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (2.18.0)
+Requirement already satisfied: stack-data in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.6.2)
+Requirement already satisfied: pexpect&gt;4.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (4.9.0)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.8.4)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.7.0)
+Requirement already satisfied: wcwidth in /srv/conda/envs/notebook/lib/python3.12/site-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.2.13)
+Requirement already satisfied: executing&gt;=1.2.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (2.0.1)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (2.4.1)
+Requirement already satisfied: pure-eval in /srv/conda/envs/notebook/lib/python3.12/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;anywidget&lt;0.10.0,&gt;=0.9.0-&gt;lonboard&gt;=0.9.3-&gt;xdggs) (0.2.3)
+Requirement already satisfied: healpy in /srv/conda/envs/notebook/lib/python3.12/site-packages (1.18.0)
+Requirement already satisfied: numpy&gt;=1.19 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from healpy) (1.26.4)
+Requirement already satisfied: astropy in /srv/conda/envs/notebook/lib/python3.12/site-packages (from healpy) (6.1.2)
+Requirement already satisfied: pyerfa&gt;=2.0.1.1 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;healpy) (2.0.1.4)
+Requirement already satisfied: astropy-iers-data&gt;=0.2024.7.1.0.34.3 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;healpy) (0.2024.8.5.0.32.23)
+Requirement already satisfied: PyYAML&gt;=3.13 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;healpy) (6.0.2)
+Requirement already satisfied: packaging&gt;=19.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from astropy-&gt;healpy) (24.1)
+Requirement already satisfied: zarr==2.18.4 in /srv/conda/envs/notebook/lib/python3.12/site-packages (2.18.4)
+Requirement already satisfied: asciitree in /srv/conda/envs/notebook/lib/python3.12/site-packages (from zarr==2.18.4) (0.3.3)
+Requirement already satisfied: numpy&gt;=1.24 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from zarr==2.18.4) (1.26.4)
+Requirement already satisfied: fasteners in /srv/conda/envs/notebook/lib/python3.12/site-packages (from zarr==2.18.4) (0.17.3)
+Requirement already satisfied: numcodecs!=0.14.0,!=0.14.1,&gt;=0.10.0 in /srv/conda/envs/notebook/lib/python3.12/site-packages (from zarr==2.18.4) (0.12.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">healpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xdggs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">fsspec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sparse</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">display_max_rows</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.core.options.set_options at 0x2aabdc098500&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numcodecs</span><span class="w"> </span><span class="kn">import</span> <span class="n">Zstd</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">proj_odysea</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">nside</span><span class="p">,</span>
+        <span class="n">multiscale</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">sz_orbit</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
+        <span class="n">nest</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">chunk_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+        <span class="n">cell_id_name</span><span class="o">=</span><span class="s2">&quot;cell_ids&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nside</span> <span class="o">=</span> <span class="n">nside</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multiscale</span> <span class="o">=</span> <span class="n">multiscale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sz_orbit</span> <span class="o">=</span> <span class="n">sz_orbit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nest</span> <span class="o">=</span> <span class="n">nest</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_id_name</span> <span class="o">=</span> <span class="n">cell_id_name</span>
+        <span class="c1"># Configuration du compresseur (Zstandard) avec la valeur de remplissage</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setalldata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">cell_ids</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">cell_ids</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="p">[],</span> <span class="n">time</span><span class="o">=</span><span class="p">[],</span> <span class="n">orbit</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<span class="c1">#        fs = fsspec.filesystem(&quot;http&quot;)</span>
+<span class="c1">#        ds = xr.open_dataset(fs.open(url), engine=&quot;h5netcdf&quot;)</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;h5netcdf&quot;</span><span class="p">)</span>
+
+        <span class="n">var_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span><span class="p">)</span>
+
+        <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">u_model</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">hidx</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">ang2pix</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="p">,</span>
+            <span class="n">ds</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span>
+            <span class="n">ds</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span>
+            <span class="n">lonlat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">nest</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nest</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+        <span class="n">him</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">hidx</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">cell_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">him</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">out_map</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">healpix_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">var_cell_ids</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+            <span class="n">healpix_ids</span><span class="p">,</span>
+            <span class="n">dims</span><span class="o">=</span><span class="s2">&quot;cells&quot;</span><span class="p">,</span>
+            <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;grid_name&quot;</span><span class="p">:</span> <span class="s2">&quot;healpix&quot;</span><span class="p">,</span> <span class="s2">&quot;nside&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="p">,</span> <span class="s2">&quot;nest&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nest</span><span class="p">},</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ivar</span> <span class="ow">in</span> <span class="n">var_name</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="n">ivar</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ivar</span> <span class="ow">in</span> <span class="n">angle</span><span class="p">:</span>
+                    <span class="n">c_hmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span>
+                        <span class="n">hidx</span><span class="p">,</span>
+                        <span class="n">weights</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="n">ivar</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+                        <span class="n">minlength</span><span class="o">=</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="n">s_hmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span>
+                        <span class="n">hidx</span><span class="p">,</span>
+                        <span class="n">weights</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="n">ivar</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+                        <span class="n">minlength</span><span class="o">=</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setalldata</span><span class="p">(</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">s_hmap</span><span class="p">[</span><span class="n">cell_ids</span><span class="p">],</span> <span class="n">c_hmap</span><span class="p">[</span><span class="n">cell_ids</span><span class="p">]),</span> <span class="n">cell_ids</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">ivar</span> <span class="ow">in</span> <span class="n">time</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;donothing&quot;</span><span class="p">,</span> <span class="n">ivar</span><span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setalldata</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">cell_ids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span> <span class="n">cell_ids</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span>
+                        <span class="n">hidx</span><span class="p">,</span>
+                        <span class="n">weights</span><span class="o">=</span><span class="n">ds</span><span class="p">[</span><span class="n">ivar</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                        <span class="n">minlength</span><span class="o">=</span><span class="mi">12</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setalldata</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">cell_ids</span><span class="p">]</span> <span class="o">/</span> <span class="n">him</span><span class="p">[</span><span class="n">cell_ids</span><span class="p">],</span> <span class="n">cell_ids</span><span class="p">)</span>
+
+                <span class="n">out_map</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                        <span class="n">data</span><span class="p">,</span>
+                        <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cells&quot;</span><span class="p">,</span> <span class="s2">&quot;orbit&quot;</span><span class="p">),</span>
+                        <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_id_name</span><span class="p">:</span> <span class="n">var_cell_ids</span><span class="p">,</span> <span class="s2">&quot;orbit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">orbit</span><span class="p">]},</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">ivar</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="n">ivar</span> <span class="o">=</span> <span class="s2">&quot;hit&quot;</span>
+        <span class="n">out_map</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setalldata</span><span class="p">(</span><span class="n">him</span><span class="p">[</span><span class="n">cell_ids</span><span class="p">],</span> <span class="n">cell_ids</span><span class="p">),</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cells&quot;</span><span class="p">,</span> <span class="s2">&quot;orbit&quot;</span><span class="p">),</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_id_name</span><span class="p">:</span> <span class="n">var_cell_ids</span><span class="p">,</span> <span class="s2">&quot;orbit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">orbit</span><span class="p">]},</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">ivar</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Orbit &quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Npt = &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell_ids</span><span class="p">))</span>
+
+        <span class="n">ds_total</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">out_map</span><span class="p">)</span>
+
+        <span class="n">chunk_size_data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;chunk_size_data&quot;</span><span class="p">,</span> <span class="n">chunk_size_data</span><span class="p">)</span>
+        <span class="n">ds_total</span> <span class="o">=</span> <span class="n">ds_total</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;cells&quot;</span><span class="p">:</span> <span class="n">chunk_size_data</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">ds_total</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="n">hp</span><span class="o">.</span><span class="n">cartview</span><span class="p">(</span>
+            <span class="n">u</span><span class="p">,</span>
+            <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">hold</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">sub</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;U Model&quot;</span><span class="p">,</span>
+            <span class="nb">min</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">unit</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$m.s^{-1}$&quot;</span><span class="p">,</span>
+            <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">,</span>
+            <span class="n">flip</span><span class="o">=</span><span class="s2">&quot;geo&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">hp</span><span class="o">.</span><span class="n">cartview</span><span class="p">(</span>
+            <span class="n">v</span><span class="p">,</span>
+            <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">hold</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">sub</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;V Model&quot;</span><span class="p">,</span>
+            <span class="nb">min</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">unit</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$m.s^{-1}$&quot;</span><span class="p">,</span>
+            <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">,</span>
+            <span class="n">flip</span><span class="o">=</span><span class="s2">&quot;geo&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numcodecs</span><span class="w"> </span><span class="kn">import</span> <span class="n">Zstd</span>
+
+<span class="n">level</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">chunk_late</span> <span class="o">=</span> <span class="mi">3</span><span class="c1">#*(2**level)</span>
+<span class="n">chunk_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span> <span class="mi">12</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span><span class="o">**</span><span class="n">level</span><span class="p">))</span> <span class="o">/</span> <span class="n">chunk_late</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;chunk_size&quot;</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">)</span>
+
+<span class="n">pr</span><span class="o">=</span><span class="n">proj_odysea</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">level</span><span class="p">,</span>
+               <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">chunk_size</span><span class="o">=</span> <span class="n">chunk_size</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">161</span><span class="p">,</span><span class="mi">274</span><span class="p">):</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://data-fair2adapt.ifremer.fr/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p</span><span class="si">%d</span><span class="s2">.nc&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p</span><span class="si">%d</span><span class="s2">.nc&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">url_out</span><span class="o">=</span><span class="s2">&quot;/home/jovyan/Akathon-Geilo/odysea.zarr&quot;</span>
+    <span class="n">url_out</span><span class="o">=</span><span class="s2">&quot;/home/lops-oh-fair2adapt/odysea/odysea.zarr&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">ds_data</span><span class="o">=</span><span class="n">pr</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">orbit</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+                    <span class="n">angle</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="s1">&#39;wind_dir&#39;</span><span class="p">],</span>
+                     <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample_time&#39;</span><span class="p">])</span>
+    
+    <span class="n">ds_data</span> <span class="o">=</span> <span class="n">ds_data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">)</span>
+    
+    <span class="n">zstd_compressor</span> <span class="o">=</span> <span class="n">Zstd</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># Define a common compression setting</span>
+    <span class="n">compression_settings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;compressor&quot;</span><span class="p">:</span> <span class="n">zstd_compressor</span><span class="p">,</span> <span class="s2">&quot;chunks&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)}</span>
+
+    <span class="c1"># Create the encoding dictionary for all variables</span>
+    <span class="n">encoding</span> <span class="o">=</span> <span class="p">{</span><span class="n">var</span><span class="p">:</span> <span class="n">compression_settings</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ds_data</span><span class="o">.</span><span class="n">data_vars</span><span class="p">}</span>
+    
+    <span class="k">if</span> <span class="n">k</span><span class="o">==</span><span class="mi">161</span><span class="p">:</span>
+        <span class="n">ds_data</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="n">url_out</span><span class="p">,</span> 
+                        <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>  <span class="c1">#consolidated=True,</span>
+                        <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ds_data</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="n">url_out</span><span class="p">,</span> 
+                        <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> 
+                        <span class="n">append_dim</span><span class="o">=</span><span class="s2">&quot;orbit&quot;</span><span class="p">)</span> <span class="c1">#,consolidated=True)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chunk_size 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p161.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p161.nc
+Npt =  143996
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p162.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p162.nc
+Npt =  163573
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p163.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p163.nc
+Npt =  100324
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p164.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p164.nc
+Npt =  101928
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p165.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p165.nc
+Npt =  84535
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p166.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p166.nc
+Npt =  128399
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p167.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p167.nc
+Npt =  99491
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p168.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p168.nc
+Npt =  121340
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p169.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p169.nc
+Npt =  105829
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p170.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p170.nc
+Npt =  134019
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p171.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p171.nc
+Npt =  86279
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p172.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p172.nc
+Npt =  153336
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p173.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p173.nc
+Npt =  76388
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p174.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p174.nc
+Npt =  154317
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p175.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p175.nc
+Npt =  132428
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p176.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p176.nc
+Npt =  148712
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p177.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p177.nc
+Npt =  145771
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p178.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p178.nc
+Npt =  126800
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p179.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p179.nc
+Npt =  103093
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p180.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p180.nc
+Npt =  106007
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p181.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p181.nc
+Npt =  98210
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p182.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p182.nc
+Npt =  105919
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p183.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p183.nc
+Npt =  119381
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p184.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p184.nc
+Npt =  113253
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p185.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p185.nc
+Npt =  150797
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p186.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p186.nc
+Npt =  75790
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p187.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p187.nc
+Npt =  159818
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p188.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p188.nc
+Npt =  97999
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p189.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p189.nc
+Npt =  153143
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p190.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p190.nc
+Npt =  125597
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p191.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p191.nc
+Npt =  142570
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p192.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p192.nc
+Npt =  160204
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p193.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p193.nc
+Npt =  98639
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p194.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p194.nc
+Npt =  102362
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p195.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p195.nc
+Npt =  84362
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p196.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p196.nc
+Npt =  129577
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p197.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p197.nc
+Npt =  97766
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p198.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p198.nc
+Npt =  120680
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p199.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p199.nc
+Npt =  104659
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p200.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p200.nc
+Npt =  136607
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p201.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p201.nc
+Npt =  84322
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p202.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p202.nc
+Npt =  153633
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p203.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p203.nc
+Npt =  82175
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p204.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p204.nc
+Npt =  154458
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p205.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p205.nc
+Npt =  135860
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p206.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p206.nc
+Npt =  145148
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p207.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p207.nc
+Npt =  143573
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p208.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p208.nc
+Npt =  126178
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p209.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p209.nc
+Npt =  98849
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p210.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p210.nc
+Npt =  103147
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p211.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p211.nc
+Npt =  103310
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p212.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p212.nc
+Npt =  105484
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p213.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p213.nc
+Npt =  124048
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p214.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p214.nc
+Npt =  113418
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p215.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p215.nc
+Npt =  151264
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p216.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p216.nc
+Npt =  71440
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p217.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p217.nc
+Npt =  160011
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p218.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p218.nc
+Npt =  103493
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p219.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p219.nc
+Npt =  152826
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p220.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p220.nc
+Npt =  129194
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p221.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p221.nc
+Npt =  140711
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p222.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p222.nc
+Npt =  155651
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p223.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p223.nc
+Npt =  97406
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p224.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p224.nc
+Npt =  104042
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p225.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p225.nc
+Npt =  85060
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p226.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p226.nc
+Npt =  130504
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p227.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p227.nc
+Npt =  97516
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p228.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p228.nc
+Npt =  120471
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p229.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p229.nc
+Npt =  103211
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p230.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p230.nc
+Npt =  139217
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p231.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p231.nc
+Npt =  82545
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p232.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p232.nc
+Npt =  153833
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p233.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p233.nc
+Npt =  88134
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p234.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p234.nc
+Npt =  154563
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p235.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p235.nc
+Npt =  139197
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p236.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p236.nc
+Npt =  141244
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p237.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p237.nc
+Npt =  140984
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p238.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p238.nc
+Npt =  125969
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p239.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p239.nc
+Npt =  94519
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p240.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p240.nc
+Npt =  100389
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p241.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p241.nc
+Npt =  106173
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p242.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p242.nc
+Npt =  103907
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p243.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p243.nc
+Npt =  128230
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p244.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p244.nc
+Npt =  111881
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p245.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p245.nc
+Npt =  151627
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p246.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p246.nc
+Npt =  69051
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p247.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p247.nc
+Npt =  160073
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p248.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p248.nc
+Npt =  108043
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p249.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p249.nc
+Npt =  152436
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p250.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p250.nc
+Npt =  134880
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p251.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p251.nc
+Npt =  137750
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p252.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p252.nc
+Npt =  150269
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p253.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p253.nc
+Npt =  95854
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p254.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p254.nc
+Npt =  106038
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p255.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p255.nc
+Npt =  86815
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p256.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p256.nc
+Npt =  129322
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p257.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p257.nc
+Npt =  97878
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p258.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p258.nc
+Npt =  121002
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p259.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p259.nc
+Npt =  101123
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p260.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p260.nc
+Npt =  141761
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p261.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p261.nc
+Npt =  80827
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p262.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p262.nc
+Npt =  153895
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p263.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p263.nc
+Npt =  94838
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p264.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p264.nc
+Npt =  154995
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p265.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p265.nc
+Npt =  142770
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p266.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p266.nc
+Npt =  137289
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p267.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p267.nc
+Npt =  137654
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p268.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p268.nc
+Npt =  125180
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p269.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p269.nc
+Npt =  90299
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p270.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p270.nc
+Npt =  98549
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p271.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p271.nc
+Npt =  107250
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p272.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p272.nc
+Npt =  102338
+chunk_size_data 1048576
+/home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p273.nc
+donothing sample_time
+Orbit  /home/lops-oh-fair2adapt/odysea/odysea/L2_global_mitgcm_confF_c13/odysea_L2_global_mitgcm_confF_c13_p273.nc
+Npt =  132192
+chunk_size_data 1048576
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#dtotal=xr.open_zarr(&quot;odyssea.zarr&quot;).rename_vars(dict(cells=&quot;cell_ids&quot;)).assign_coords(cell_ids=lambda ds : ds[&quot;cell_ids&quot;].assign_attrs({&quot;grid_name&quot;:&quot;healpix&quot;,&quot;nside&quot;:256,&quot;nest&quot;:True})).pipe(xdggs.decode)</span>
+<span class="n">ds</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">url_out</span><span class="p">)</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">xdggs</span><span class="o">.</span><span class="n">decode</span><span class="p">)</span>
+<span class="n">cell_centers</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">dggs</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">()</span>
+<span class="n">ds</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span>
+    <span class="n">cell_centers</span><span class="o">.</span><span class="n">coords</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">u_model</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">orbit</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">!=</span><span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span><span class="o">.</span><span class="n">dggs</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="c1">#dtotal.u_model.where(lambda x : x!=hp.UNSEEN).mean(&quot;orbit&quot;).compute().dggs.explore(cmap=&#39;jet&#39;,alpha=0.8)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c118ff990d574da3ba47bfcb5cf31448", "version_major": 2, "version_minor": 1}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtotal</span><span class="o">.</span><span class="n">u_model</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">cells</span><span class="o">=</span><span class="mi">361782</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">!=</span><span class="n">hp</span><span class="o">.</span><span class="n">UNSEEN</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ae63fe0ee70&gt;]
+</pre></div>
+</div>
+<img alt="_images/4679b8d0d0cb87ec52e374ebacb529795aee6aaa49e2b5361e2bab6b4e221159.png" src="_images/4679b8d0d0cb87ec52e374ebacb529795aee6aaa49e2b5361e2bab6b4e221159.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "riomar"
+        },
+        kernelOptions: {
+            name: "riomar",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'riomar'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Pangeo and FAIR2Adapt Communities
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
