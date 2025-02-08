@@ -446,7 +446,7 @@
 (and newest zarr version until pangeo-EOSC-notebook image is updated):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install -U zarr xdggs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install -U zarr xarray git+https://github.com/xarray-contrib/xdggs.git</span>
 </pre></div>
 </div>
 </div>
@@ -465,7 +465,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.core.options.set_options at 0x7dea521059a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.core.options.set_options at 0x7ee08835e3c0&gt;
 </pre></div>
 </div>
 </div>
@@ -495,8 +495,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.71 s, sys: 3.38 s, total: 9.09 s
-Wall time: 9.5 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.12 s, sys: 2.55 s, total: 7.67 s
+Wall time: 8.11 s
 </pre></div>
 </div>
 </div>
@@ -515,9 +515,25 @@ Wall time: 9.5 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6dc024d4b6eb4d2a822e9380a49014f1", "version_major": 2, "version_minor": 1}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "32486c6816e14cf38c440b627f95af25", "version_major": 2, "version_minor": 1}</script></div>
 </div>
-<p><code>cmocean.cm.topo</code> includes <code>cmocean.cm.deep</code> for values below pivot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vmin: &#39;</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pivot: &#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vmax:  &#39;</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">cmap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vmin:  -3707.190082644628
+pivot:  0.0
+vmax:   2069.969387755102
+</pre></div>
+</div>
+<div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My45LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmdhmcVTAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ08/WnQAAAJTSURBVHic7dbLjdswFAXQR8pVpIFs0kdaSBtpNUB2aSXjLGYsg5RoO7O952yI9/iRbNPAbV+/fLtWVbXW62zst7rf+tvpuvs4ztdy3+qcbXheLfYt+/3xutrXrfq3ug/r7nWrqqrr9Pnu/Xbe/yhrn7+NNe2rcb7V6fq53/b6fH87PH9c36Z+m5+7OKdN79P643Pm93z23EP96rmL91zta4fvY/w887r5vGU99fui7tO+vpjfFvPbXl+Hepv23fttqC+H+XHdZT9nqvf5ttjXxrqP9Wrd9vFFrPr39+jn81P/0s/7x/Xv46/ff6qq6vuPn1VV9fft7f2DHe7F/D+Y78v0/1ncq8M9Xq67nfO//cfPn+9tn/r7/Zp+3z6Nx35frDvvP9v3+lhjXefzx/etF+vP9ben+14b59/j5bFGcw0ABBAAACCQAAAAgQQAAAgkAABAIAEAAAIJAAAQSAAAgEACAAAEEgAAIJAAAACBBAAACCQAAEAgAQAAAgkAABBIAACAQAIAAAQSAAAgkAAAAIEEAAAIJAAAQCABAAACCQAAEEgAAIBAAgAABBIAACCQAAAAgQQAAAgkAABAIAEAAAIJAAAQSAAAgEACAAAEEgAAIJAAAACBBAAACCQAAEAgAQAAAgkAABBIAACAQAIAAAQSAAAgkAAAAIEEAAAIJAAAQCABAAACCQAAEEgAAIBAAgAABBIAACCQAAAAgQQAAAgkAABAIAEAAAIJAAAQSAAAgEACAAAEEgAAIJAAAACBBAAACCQAAEAgAQAAAgkAABDoH1hBEOf8kx4aAAAAAElFTkSuQmCC"></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#281a2cff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #281a2cff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#a18940ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #a18940ff;"></div></div></div></div></div>
+</div>
 </section>
 </section>
 
